@@ -7,7 +7,6 @@ cur = conn.cursor()
 
 # aquia se insertan valores en una tabla ya creada
 #cur.execute('''INSERT INTO locals (name, city, address) VALUES ('Cafe de los Angelitos', 'Caceres', 'Av. Rivadavia 2100')''')
-
 conn.commit()
 
 cur.close()
