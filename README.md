@@ -1,6 +1,6 @@
 ## Simple FLASK Rest API to perform basic CRUD Operations against a PostgreSQL database
 
-###DATABASE STRUCTURE:
+### DATABASE STRUCTURE:
 #### id_local: Primary Key
 #### name: NOT NULL
 #### city: NOT NULL
