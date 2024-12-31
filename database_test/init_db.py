@@ -1,6 +1,6 @@
 import psycopg2
 
-# Connect to the database
+# ESTE ARCHIVO ES UN TEST PARA CONECTARSE A LA BASE DE DATOS CON LOS SIGUIENTES CREDENCIALES:
 try:
     conn = psycopg2.connect(
         database="Locales",
@@ -11,15 +11,13 @@ try:
     )
     cur = conn.cursor()
     
-    # Execute a query to fetch all rows
+    # cargo todos las tuplas en el cursor
     cur.execute("SELECT * FROM locals;")
     rows = cur.fetchall()
     
-    # Print the rows
+    # Imprimo las lineas
     for row in rows:
         print(row)
-    
-    # Close the cursor and connection
     cur.close()
     conn.close()
 
