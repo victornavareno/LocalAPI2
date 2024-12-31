@@ -1,13 +1,27 @@
 import psycopg2
 
-# esta archivo se encarga de conectarse a la base de datos y  ejecutar sentencias sql 
-# aqui repasar el database 
-conn = psycopg2.connect(database = "Locales", host= "localhost", user = "postgres", password = "12345", port= "5433")
-cur = conn.cursor()
+# Connect to the database
+try:
+    conn = psycopg2.connect(
+        database="Locales",
+        host="localhost",
+        user="postgres",
+        password="12345",
+        port="5433"
+    )
+    cur = conn.cursor()
+    
+    # Execute a query to fetch all rows
+    cur.execute("SELECT * FROM locals;")
+    rows = cur.fetchall()
+    
+    # Print the rows
+    for row in rows:
+        print(row)
+    
+    # Close the cursor and connection
+    cur.close()
+    conn.close()
 
-# aquia se insertan valores en una tabla ya creada
-#cur.execute('''INSERT INTO locals (name, city, address) VALUES ('Cafe de los Angelitos', 'Caceres', 'Av. Rivadavia 2100')''')
-conn.commit()
-
-cur.close()
-conn.close()
+except psycopg2.Error as e:
+    print("Error connecting to the database:", e)
